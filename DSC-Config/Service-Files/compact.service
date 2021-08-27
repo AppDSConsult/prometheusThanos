@@ -1,0 +1,15 @@
+[Unit]
+Description=Thanos Compact
+Wants=network-online.target
+After=network-online.target
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/bin/thanos compact \
+       --data-dir=/var/lib/thanos-compact/ \
+       --objstore.config-file=/etc/prometheus/bucket.yml \
+       --http-address=localhost:10907 \
+       --wait
+[Install]
+WantedBy=multi-user.target
