@@ -1,4 +1,4 @@
-$Node = "10.0.7.6"
+$Node = "10.0.7.6"  #Add VM server name or IP to which DSC config should be pushed
 $Credential = Get-Credential -UserName "root" -Message "Enter Password:"
 #Options for a trusted SSL certificate
 #Ignore SSL certificate validation

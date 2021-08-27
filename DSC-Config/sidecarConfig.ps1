@@ -75,7 +75,7 @@ config:
         nxFile sidecarServiceFile
         {
             DestinationPath = "/etc/systemd/system/sidecar.service"
-            SourcePath      =  "https://raw.githubusercontent.com/audriuz/kplabsdemo/main/sidecar.service"     
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/sidecar.service"     
             Ensure          = "Present"
             Type            = "file"
             DependsOn       = "[nxFile]bucketyml"

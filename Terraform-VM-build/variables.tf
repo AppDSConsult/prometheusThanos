@@ -49,7 +49,7 @@ variable "resource_group_name" {
 
 variable "vm_size" {
   description = "Size of the machine to deploy"
-  default     = "Standard_B1s"  #Add size
+  default     = "Standard_B1s"  #Add Azure sizing
 }
 
 variable "nsg_id" {

@@ -2,7 +2,7 @@ Configuration prometheusConfig
 {
     Import-DscResource -Module nx
 
-    Node  "10.0.7.5"
+    Node  "10.0.7.5"  #Add Prometheus node name or IP
     {
         nxFile prometheusDataDir
         {
@@ -90,10 +90,10 @@ fi
 sudo cp -rp /tmp/prometheus/prometheus-2.28.1.linux-amd64/prometheus /usr/local/bin
 "@
         }
+        
         nxFile prometheusYml
         {
             DestinationPath = "/etc/prometheus/prometheus.yml"
-            #SourcePath      = "https://raw.githubusercontent.com/audriuz/kplabsdemo/main/prometheus.yml"
             Contents        = "global:
   scrape_interval: 5s
   external_labels:
@@ -158,7 +158,7 @@ sudo cp -r /tmp/prometheus/prometheus-2.28.1.linux-amd64/consoles /etc/prometheu
         nxFile prometheusServiceFile
         {
             DestinationPath = "/etc/systemd/system/prometheus.service"
-            SourcePath      =  "https://raw.githubusercontent.com/audriuz/Prometheus-Thanos-Setup/main/DSC-Config/Service-Files/prometheus.service"    
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/prometheus.service"    
             Ensure          = "Present"
             Type            = "file"
         }

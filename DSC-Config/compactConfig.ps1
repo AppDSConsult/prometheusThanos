@@ -41,7 +41,7 @@ config:
         nxFile compactServiceFile
         {
             DestinationPath = "/etc/systemd/system/compact.service"
-            SourcePath      =  "https://raw.githubusercontent.com/audriuz/kplabsdemo/main/compact.service"     
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/compact.service"     
             Ensure          = "Present"
             Type            = "file"
             DependsOn       = "[nxFile]bucketyml"

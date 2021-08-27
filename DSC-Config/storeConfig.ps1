@@ -39,7 +39,7 @@ config:
         nxFile storeServiceFile
         {
             DestinationPath = "/etc/systemd/system/store.service"
-            SourcePath      =  "https://raw.githubusercontent.com/audriuz/kplabsdemo/main/store.service"     
+            SourcePath      =  "https://raw.githubusercontent.com/AppDSConsult/prometheusThanos/master/DSC-Config/Service-Files/store.service"     
             Ensure          = "Present"
             Type            = "file"
             DependsOn       = "[nxFile]bucketyml"
