@@ -26,7 +26,7 @@
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Deployment diagram:**
-![alt text](https://github.com/AppDSConsult/prometheusThanos/blob/master/Thanos-deploy-setup.png?raw=true)
+![alt text](https://github.com/AppDSConsult/prometheusThanos/blob/master/Thanos-deploy-setup.jpg?raw=true)
 
 *prometheusConfig.ps1* and *sidecarConfig.ps1* should be executed on *Server1* and *Server2*. These servers will be Prometheus and Thanos Sidecar cluster nodes.
 
