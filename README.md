@@ -23,3 +23,15 @@ storeConfig.ps1 - installs and configures Thanos Store component on Linux VM. Ca
 compactConfig.ps1 - installs and configures Thanos Compact component on Linux VM. Can be created on same or different server as Prometheus/Thanos components. Make sure you're connected to Azure subscription via terminal, as existing Storage account details are required to create bucket.yml config file that contains Azure object store configuration for uploading TSDB blocks to. Compact.service file contents are being downloaded from Github as file is not being modified often. IMPORTANT - all other Prometheus/Thanos components can be load balanced with few nodes, EXCEPT THANOS COMPACT. Thanos Compact must be installed only on single server to avoid conflicts. If "cannot get blob reader", "cannot get properties for Azure blob" or similar errors appear after starting compact.service, issue could be solved with below steps:
  * Increase default value (DefaultLimitNOFILE=1024) to DefaultLimitNOFILE=4096 in the /etc/systemd/system.conf or similar approach
  * Reboot machine
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Deployment diagram:
+![alt text](https://github.com/AppDSConsult/prometheusThanos/blob/master/Thanos-deploy-setup.png?raw=true)
+
+prometheusConfig.ps1 and sidecarConfig.ps1 should be executed on Server1 and Server2. These servers will be Prometheus and Thanos Sidecar cluster nodes.
+
+queryConfig.ps1 and storeConfig.ps1 should be executed on Server3 and Server4. These servers will be Thanos Query and Thanos Store cluster nodes.
+
+compactConfig.ps1 should be executed on Server5. Server5 acts as Thanos Compactor. As mentioned above, Thanos Compact must be installed only on single server to avoid conflicts.
+
+Grafana should be installed separately to Server3, Server4 and Server5, or at least on two of them to make Grafana highly available as well.
