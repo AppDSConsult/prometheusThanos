@@ -9,7 +9,7 @@ Type=simple
 ExecStart=/bin/thanos compact \
        --data-dir=/var/lib/thanos-compact/ \
        --objstore.config-file=/etc/prometheus/bucket.yml \
-       --http-address=localhost:10907 \
+       --http-address=localhost:10912 \
        --wait
 [Install]
 WantedBy=multi-user.target
