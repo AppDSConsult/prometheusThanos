@@ -60,7 +60,7 @@ resource "azurerm_network_interface" "suse-nwi" {
 #Associate existing NSG
 resource "azurerm_network_interface_security_group_association" "NSG" {
 count                     = var.rdsh_count
-network_interface_id      = azurerm_network_interface.rdsh.*.id[count.index]
+network_interface_id      = azurerm_network_interface.suse-nwi.*.id[count.index]
 network_security_group_id = var.nsg_id}
 */
 
